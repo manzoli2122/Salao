@@ -110,17 +110,7 @@
 				htmltest = htmltest + '<table class="table table-bordered table-striped table-hover table-responsive" id="datatable">';
 				htmltest = htmltest + '<thead> <tr> <th>Nome</th> <th class="align-center" style="width:180px;min-width: 160px;">Ações</th>';
 				htmltest = htmltest + '</tr> </thead> </table> </div>';
-						
-								
-									
-																
-																	
-											
-										
-									
-								
-							
-
+					
 
 				document.getElementById("div-box").innerHTML = htmltest ;
 				document.getElementById("div-titulo-pagina").innerHTML = "Clientes" ;

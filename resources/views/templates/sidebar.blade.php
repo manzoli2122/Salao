@@ -223,6 +223,61 @@
         @endif
 
 
+
+
+
+
+
+
+
+
+        @if(Route::getRoutes()->hasNamedRoute('servicosAjax.index'))
+        @permissao('Ajax')
+        <li class="treeview">
+         <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO</span>
+           <span class="pull-right-container">
+             <i class="fa fa-angle-left pull-right"></i>
+           </span>
+         </a>
+         <ul class="treeview-menu">
+             @if(Route::getRoutes()->hasNamedRoute('servicosAjax.index'))
+               @permissao('servicos')
+                   <li class="nav-item">
+                     <a class="nav-link active" href="{{ route('servicosAjax.index')}}">
+                       <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
+                       Serviços
+                     </a>
+                   </li>
+               @endpermissao			
+             @endif
+             @if(Route::getRoutes()->hasNamedRoute('produtosAjax.index'))    
+               @permissao('produtos')
+                   <li class="nav-item">
+                     <a class="nav-link active" href="{{ route('produtosAjax.index')}}">
+                       <i class="fa fa-gift  fa-lg text-primary" aria-hidden="true"></i>
+                       Produtos
+                     </a>
+                   </li>
+               @endpermissao	
+             @endif
+             @if(Route::getRoutes()->hasNamedRoute('operadorasAjax.index'))
+               @permissao('operadoras')
+                   <li class="nav-item">
+                     <a class="nav-link active" href="{{ route('operadorasAjax.index')}}">
+                       <i class="fa fa-credit-card-alt  fa-lg text-primary" aria-hidden="true"></i>
+                       Operadoras
+                     </a>
+                   </li>
+               @endpermissao	
+             @endif
+         </ul>
+       </li>
+       @endpermissao
+     @endif
+
+
+
+
         <li class="header">LABELS</li>
     
         @yield('menuLateral')
