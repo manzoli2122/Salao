@@ -5,6 +5,7 @@
     "display": "standalone",
     "background_color": "#00a65a",
     "description": "Sistema do Salão",
+    "theme_color": "#00a65a",
     "icons": [{
       "src": "images/login-bg.jpg",
       "sizes": "48x48",
