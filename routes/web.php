@@ -10,12 +10,6 @@ Route::get('/pagamentos', 'HomeController@pagamentos')->name('pagamentos-chart')
 
 Route::get('/alterar/senha', 'HomeController@alterarSenha')->name('alterar.senha');
 Route::post('/alterar/senha', 'HomeController@updateSenha')->name('senha.update');
-
-
-Route::get('usuarios/apagados', 'UserController@indexApagados')->name('usuarios.apagados');        
-Route::post('usuarios/getDatatable', 'UserController@getDatatable')->name('usuarios.getDatatable');                  
-Route::resource('/usuarios', 'UserController');
-
         
 
 /*

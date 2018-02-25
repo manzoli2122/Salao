@@ -9,3 +9,17 @@
 .doc-logo {
     font-weight: 900;
 }
+
+
+
+
+
+
+.btn-datatable {
+    padding: 1px 10px;
+    font-size: 13px;		
+} 
+
+#datatable>tbody>tr>td, #datatable>tbody>tr>th, #datatable>tfoot>tr>td, #datatable>tfoot>tr>th, #datatable>thead>tr>td, #datatable>thead>tr>th {
+    padding: 5.5px;
+}	

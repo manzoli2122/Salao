@@ -8,7 +8,7 @@ use Manzoli2122\AAL\Traits\AALUsuarioTrait;
 use Manzoli2122\Pacotes\Contracts\Models\DataTableJson;
 use DB;
 
-class User extends Authenticatable implements DataTableJson
+class User extends Authenticatable 
 {
     use Notifiable;
     use AALUsuarioTrait;

@@ -31,7 +31,7 @@ window.alertErro = function(titulo, texto = "", posicao = "center", funcao = fun
         titleSize: '14',
         message: texto,
         messageColor: '#fff',
-        timeout: false,
+        timeout: 10000,
         icon: 'fa fa-ban',
         iconColor: '#fff',
         closeOnEscape: true,

@@ -17,7 +17,7 @@ return [
 
 
 
-
+    'templateMasterJson' => 'templates.templateMasterJson',
     //TAMPLATES
     'templateMaster' => 'templates.templateMaster',
      
