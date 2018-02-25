@@ -232,7 +232,7 @@
 
 
         @if(Route::getRoutes()->hasNamedRoute('servicosAjax.index'))
-        @permissao('operadoras')
+        @permissao('super-admin')
         <li class="treeview">
          <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO</span>
            <span class="pull-right-container">
