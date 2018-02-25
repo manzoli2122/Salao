@@ -7,13 +7,16 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="theme-color" content="#00a65a">
+    <link rel="manifest" href="/manifest.json">
+    
     <title> @yield('content-header') :: {{ config('app.name', 'Salão') }}</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/salao-icon.ico">
     <link href="{{ mix('css/vendor.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ mix('css/template.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/css/jquery-ui.min.css">
-
+    
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css"/>
 
     <!-- Google Font -->
