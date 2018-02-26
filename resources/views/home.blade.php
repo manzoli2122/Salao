@@ -70,7 +70,7 @@
 			<h2>
 				INFORMAÇÕES
 			</h2>  
-			<h4 style="color:red;" > NÃO USAR FIREFOX, USAR O CHROME </h4><br>
+			<h4 style="color:red;" > <b> NÃO USAR FIREFOX, USAR O CHROME </b></h4><br>
                       
       <h4> Para cadastro de <b> Produto, Serviço ou Operadora de cartão</b> selecionar o Cadastro no menu lateral da sua tela </h4><br>
       <!--p> Para recebimento de <b>Serviços anteriores</b> acesse o clientes e no menu Lateral, caso esteja a dívida cadastrada no sistema, aparecerá o valor da dívida. </p> <br><br-->			
