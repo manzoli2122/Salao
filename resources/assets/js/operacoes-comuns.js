@@ -225,6 +225,40 @@ window.modelVoltarIndex = function( ) {
 }
 
 
+
+
+
+
+window.modelRestaurar = function( id , url , funcSucesso = function() {} , funcError = function() {} ) {			
+    alertProcessando();				
+    var token = document.head.querySelector('meta[name="csrf-token"]').content;
+    $.ajax({
+        url: url + "/restore/" + id ,
+        type: 'post',
+        data: { _token: token },
+        success: function(retorno) {
+            alertProcessandoHide();							
+            if (retorno.erro) {	                
+               
+                toastErro(retorno.msg);
+                 
+                funcError();             
+            } 
+            else {
+                toastSucesso(retorno.msg);
+                //modelVoltarIndex();
+                funcSucesso();	
+            }											
+        },
+        error: function(erro) {
+            alertProcessandoHide();
+            toastErro("Ocorreu um erro");
+            console.log(erro);
+        }
+    });		
+}
+
+
 /*
 
 window.userShowTemp = function(id, url , funcSucesso = function() {} ) {			

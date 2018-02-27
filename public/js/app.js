@@ -1241,6 +1241,37 @@ window.modelVoltarIndex = function () {
     modelIndexDataTableFunction();
 };
 
+window.modelRestaurar = function (id, url) {
+    var funcSucesso = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+    var funcError = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
+
+    alertProcessando();
+    var token = document.head.querySelector('meta[name="csrf-token"]').content;
+    $.ajax({
+        url: url + "/restore/" + id,
+        type: 'post',
+        data: { _token: token },
+        success: function success(retorno) {
+            alertProcessandoHide();
+            if (retorno.erro) {
+
+                toastErro(retorno.msg);
+
+                funcError();
+            } else {
+                toastSucesso(retorno.msg);
+                //modelVoltarIndex();
+                funcSucesso();
+            }
+        },
+        error: function error(erro) {
+            alertProcessandoHide();
+            toastErro("Ocorreu um erro");
+            console.log(erro);
+        }
+    });
+};
+
 /*
 
 window.userShowTemp = function(id, url , funcSucesso = function() {} ) {			

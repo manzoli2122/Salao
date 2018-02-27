@@ -45,6 +45,7 @@ input[pesquisavel] {
 .sidebar-menu > li > a > span  {
     margin-left: 15px;
 }
+
 .logo {
     height: 53px !important;
 }
@@ -56,8 +57,6 @@ input[pesquisavel] {
 .doc-logo {
     font-weight: 900;
 }
-
-
 
 
 
