@@ -1,6 +1,6 @@
 @extends('templates.templateMaster')
 
-@section('css')
+@push('styles') 
 <style>
     .content {
         background-image: url('images/logo-vip.png')!important ;
@@ -9,7 +9,7 @@
           background-size: cover  !important;
     }
 </style>
-@endsection
+@endpush
 
 @section('content-header')
 	Bem Vindo ao Sistema do Salão Espaço Vip
