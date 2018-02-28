@@ -231,49 +231,49 @@
 
 
 
-        @if(Route::getRoutes()->hasNamedRoute('servicosAjax.index'))
-        @permissao('super-admin')
-        <li class="treeview">
-         <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-             @if(Route::getRoutes()->hasNamedRoute('servicosAjax.index'))
-               @permissao('servicos')
-                   <li class="nav-item">
-                     <a class="nav-link " href="{{ route('servicosAjax.index')}}">
-                       <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
-                       Serviços
-                     </a>
-                   </li>
-               @endpermissao			
-             @endif
-             @if(Route::getRoutes()->hasNamedRoute('produtosAjax.index'))    
-               @permissao('produtos')
-                   <li class="nav-item">
-                     <a class="nav-link " href="{{ route('produtosAjax.index')}}">
-                       <i class="fa fa-gift  fa-lg text-primary" aria-hidden="true"></i>
-                       Produtos
-                     </a>
-                   </li>
-               @endpermissao	
-             @endif
-             @if(Route::getRoutes()->hasNamedRoute('operadorasAjax.index'))
-               @permissao('operadoras')
-                   <li class="nav-item">
-                     <a class="nav-link " href="{{ route('operadorasAjax.index')}}">
-                       <i class="fa fa-credit-card-alt  fa-lg text-primary" aria-hidden="true"></i>
-                       Operadoras
-                     </a>
-                   </li>
-               @endpermissao	
-             @endif
-         </ul>
-       </li>
-       @endpermissao
-     @endif
+        
+          @permissao('super-admin')
+            <li class="treeview">
+              <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO</span>
+                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+              </a>
+              <ul class="treeview-menu">
+                @if(Route::getRoutes()->hasNamedRoute('operadoras.ajax.index'))
+                  @permissao('operadoras')
+                      <li class="nav-item">
+                        <a class="nav-link " href="{{ route('operadoras.ajax.index')}}">
+                          <i class="fa fa-credit-card-alt  fa-lg text-primary" aria-hidden="true"></i>
+                          OPERADORAS
+                        </a>
+                      </li>
+                  @endpermissao	
+                @endif
+             
+                @if(Route::getRoutes()->hasNamedRoute('produtos.ajax.index'))    
+                  @permissao('produtos')
+                      <li class="nav-item">
+                        <a class="nav-link " href="{{ route('produtos.ajax.index')}}">
+                          <i class="fa fa-gift  fa-lg text-primary" aria-hidden="true"></i>
+                          PRODUTOS
+                        </a>
+                      </li>
+                  @endpermissao	
+                @endif
+                @if(Route::getRoutes()->hasNamedRoute('servicos.ajax.index'))
+                  @permissao('servicos')
+                      <li class="nav-item">
+                        <a class="nav-link " href="{{ route('servicos.ajax.index')}}">
+                          <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
+                          SERVIÇOS
+                        </a>
+                      </li>
+                  @endpermissao			
+                @endif
+             
+              </ul>
+            </li>
+          @endpermissao
+        
 
 
 
@@ -286,7 +286,7 @@
 
 
 
-        @if(Route::getRoutes()->hasNamedRoute('apagadosOperadorasAjax.index'))
+       
         @permissao('super-admin')
           <li class="treeview">
             <a href="#"><i class="fa fa-tasks  fa-lg fa-2x text-red"></i> <span>GERENCIAR APAGADOS</span>
@@ -294,42 +294,50 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
-         <ul class="treeview-menu">
-                
-             @if(Route::getRoutes()->hasNamedRoute('apagadosOperadorasAjax.index'))
+         <ul class="treeview-menu">                
+             @if(Route::getRoutes()->hasNamedRoute('operadoras.ajax.apagados.index'))
                @permissao('operadoras')
                    <li class="nav-item">
-                     <a class="nav-link " href="{{ route('apagadosOperadorasAjax.index')}}">
+                     <a class="nav-link " href="{{ route('operadoras.ajax.apagados.index')}}">
                        <i class="fa fa-credit-card-alt  fa-lg text-primary" aria-hidden="true"></i> 
                        OPERADORAS
                      </a>
                    </li>
                @endpermissao	
              @endif
-
-
              @if(Route::getRoutes()->hasNamedRoute('produtos.ajax.apagados.index'))    
                @permissao('produtos')
                    <li class="nav-item">
                      <a class="nav-link " href="{{ route('produtos.ajax.apagados.index')}}">
                        <i class="fa fa-gift  fa-lg text-primary" aria-hidden="true"></i>
-                       Produtos
+                       PRODUTOS
                      </a>
                    </li>
                @endpermissao	
              @endif
+             @if(Route::getRoutes()->hasNamedRoute('servicos.ajax.apagados.index'))    
+             @permissao('produtos')
+                 <li class="nav-item">
+                   <a class="nav-link " href="{{ route('servicos.ajax.apagados.index')}}">
+                     <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
+                     SERVIÇOS
+                   </a>
+                 </li>
+             @endpermissao	
+           @endif
+
 
 
 
          </ul>
        </li>
        @endpermissao
-     @endif
+    
 
     
         @yield('menuLateral')
                
       </ul>
     </section>
-    <!-- /.sidebar -->
+   
   </aside>
