@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/salao-icon.ico">
     <link href="{{ mix('css/vendor.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ mix('css/template.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+   
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -24,7 +24,7 @@
     <script type="text/javascript">   URL_ROOT = "{{url('/')}}"; </script>
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini" id="body">
 
     <!-- Mensagens de Sucesso -->
     @if (\Session::has('success'))
@@ -53,7 +53,7 @@
     </div>
 
     <script src="{{ mix('js/vendor.js') }}" type="text/javascript"></script>
-    <script src="/js/jquery-ui.min.js"></script>
+    
     <script src="{{ mix('js/template.js') }}" type="text/javascript"></script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
     @stack('script')

@@ -274,7 +274,15 @@
             </li>
           @endpermissao
         
-
+          @if(Route::getRoutes()->hasNamedRoute('clientes.ajax.index'))
+            @permissao('clientes')
+              <li>
+                <a href="{{ route('clientes.ajax.index')}}">
+                  <i class="fa fa-users fa-lg fa-2x text-green"></i> <span> CLIENTES AJAX </span>
+                </a>
+              </li>
+            @endpermissao
+          @endif 
 
 
 
@@ -316,17 +324,25 @@
                @endpermissao	
              @endif
              @if(Route::getRoutes()->hasNamedRoute('servicos.ajax.apagados.index'))    
-             @permissao('produtos')
-                 <li class="nav-item">
-                   <a class="nav-link " href="{{ route('servicos.ajax.apagados.index')}}">
-                     <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
-                     SERVIÇOS
-                   </a>
-                 </li>
-             @endpermissao	
-           @endif
+              @permissao('produtos')
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{ route('servicos.ajax.apagados.index')}}">
+                      <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
+                      SERVIÇOS
+                    </a>
+                  </li>
+              @endpermissao	
+            @endif
 
-
+            @if(Route::getRoutes()->hasNamedRoute('clientes.ajax.apagados.index'))
+              @permissao('clientes')
+                <li>
+                  <a href="{{ route('clientes.ajax.apagados.index')}}">
+                    <i class="fa fa-users fa-lg  text-primary"></i> <span> CLIENTES </span>
+                  </a>
+                </li>
+              @endpermissao
+            @endif 
 
 
          </ul>

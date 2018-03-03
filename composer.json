@@ -12,6 +12,7 @@
         "laravel/tinker": "~1.0",
        
         "manzoli2122/salao-cadastro-ajax": "dev-master",
+        "manzoli2122/salao-atendimento-ajax": "dev-master",
         "manzoli2122/opensource": "dev-master",
         "manzoli2122/salao-gerencial": "dev-master",
         "manzoli2122/salao-calendar": "dev-master",

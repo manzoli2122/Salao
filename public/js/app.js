@@ -1203,7 +1203,9 @@ window.modelUpdateAjax = function (id, url) {
     var funcError = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
 
     alertProcessando();
+
     var dados = $('#form-model').serialize();
+
     $.ajax({
         url: url + "/" + id,
         type: 'post',
@@ -1218,6 +1220,7 @@ window.modelUpdateAjax = function (id, url) {
                 funcError();
             } else {
                 toastSucesso(retorno.msg);
+                funcSucesso();
                 modelVoltarIndex();
             }
         },

@@ -176,7 +176,9 @@ window.modelStore = function( url , funcSucesso = function() {} , funcError = fu
 
 window.modelUpdateAjax = function(id, url , funcSucesso = function() {} , funcError = function() {}  ) {			
     alertProcessando();				
+    
     var dados = $('#form-model').serialize() ;
+
     $.ajax({
         url: url + "/" + id ,
         type: 'post',
@@ -191,8 +193,10 @@ window.modelUpdateAjax = function(id, url , funcSucesso = function() {} , funcEr
                 funcError();
             } 
             else {
-                toastSucesso(retorno.msg);
+                toastSucesso(retorno.msg); 
+                funcSucesso();               
                 modelVoltarIndex();	
+               
             }											
         },
         error: function(erro) {
