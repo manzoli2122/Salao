@@ -69,24 +69,19 @@
 /***/ (function(module, exports) {
 
 
-
 window.servicos = [];
-
 window.produtos = [];
-
 window.pagamentos = [];
+window.pagardivida = false;
 
 $(document).ready(function () {
-
     $('#servico_id').select2({
         width: 'resolve' // need to override the changed default       
     });
     $('#servico_id').on('select2:select', function (e) {
         servicoFunction();
     });
-
     $("#funcionario_id").select2();
-
     $('#produto_id').select2({
         width: 'resolve' // need to override the changed default       
     });
@@ -101,25 +96,45 @@ window.calculaValorTotal = function () {
         var item = servicos[i];
         totalAtendimento = totalAtendimento + parseFloat(item.valor_servico_total);
     }
-
     for (i in produtos) {
         var item = produtos[i];
         totalAtendimento = totalAtendimento + parseFloat(item.valor_produto_total);
     }
-    document.getElementById("valor_total").innerHTML = ' Valor Total R$ ' + totalAtendimento;
-
+    if (pagardivida) {
+        var valorDivida = parseFloat(document.getElementById("valor_total_divida").dataset.valor);
+        totalAtendimento = totalAtendimento + valorDivida;
+    }
+    document.getElementById("valor_total").innerHTML = ' Valor Total R$ ' + totalAtendimento.formatMoney(2, ',', '.');
+    document.getElementById("valor_total").dataset.valor = totalAtendimento;
     var totalPagamentos = 0;
     for (i in pagamentos) {
         var item = pagamentos[i];
         totalPagamentos = totalPagamentos + parseFloat(item.valor);
     }
-    document.getElementById("valor_total_pagamentos").innerHTML = 'Total de Pagamentos R$ ' + totalPagamentos;
+    document.getElementById("valor_total_pagamentos").innerHTML = 'Total dos Pagamentos R$ ' + totalPagamentos.formatMoney(2, ',', '.');
+    document.getElementById("valor_total_pagamentos").dataset.valor = totalPagamentos;
+    document.forms["form-pagamento"]["valor"].value = totalAtendimento - totalPagamentos;
+};
+
+Number.prototype.formatMoney = function (c, d, t) {
+    var n = this,
+        c = isNaN(c = Math.abs(c)) ? 2 : c,
+        d = d == undefined ? "." : d,
+        t = t == undefined ? "," : t,
+        s = n < 0 ? "-" : "",
+        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
+
+window.alterardivida = function () {
+    pagardivida = !pagardivida;
+    calculaValorTotal();
 };
 
 //----------------------------------------------------------------------------------------------------------------------------
 // FUNÇÕES   PARA   SERVIÇOS
 //----------------------------------------------------------------------------------------------------------------------------
-
 window.AdicionarServico = function () {
     var novoServico = {};
     var form = document.forms["form-servico"];
@@ -220,7 +235,6 @@ window.servicoFunction = function () {
     var acrescimo = parseFloat(form["acrescimo"].value);
     var valor_unitario = valor - desconto + acrescimo;
     var valor_total = valor_unitario * quantidade;
-
     form["valor_servico_unitario"].value = valor_unitario;
     form["valor_servico_total"].value = valor_total;
 };
@@ -228,8 +242,6 @@ window.servicoFunction = function () {
 //----------------------------------------------------------------------------------------------------------------------------
 // FUNÇÕES   PARA   PRODUTO
 //----------------------------------------------------------------------------------------------------------------------------
-
-
 window.AdicionarProduto = function () {
     var novoProduto = {};
     var form = document.forms["form-produto"];
@@ -332,9 +344,7 @@ window.desenharProduto = function () {
 
 //----------------------------------------------------------------------------------------------------------------------------
 // FUNÇÕES   PARA    PAGAMENTO
-//----------------------------------------------------------------------------------------------------------------------------
-
-
+//----------------------------------------------------------------------------------------------------------------------------        
 window.AdicionarPagamento = function () {
     var novoPagamento = {};
     var form = document.forms["form-pagamento"];
@@ -407,7 +417,6 @@ window.desenharPagamento = function () {
         html = html + '         </div>';
         html = html + '     </div>   ';
         html = html + '</div>';
-        console.log(item);
     }
     document.getElementById("todos-pagamentos").innerHTML = html;
 };
