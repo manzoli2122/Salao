@@ -90,6 +90,39 @@ $(document).ready(function () {
     });
 });
 
+window.atendimentoStore = function (url, cliente_id, url_retorno) {
+    alertProcessando();
+    var valorPagamentos = parseFloat(document.getElementById("valor_total_pagamentos").dataset.valor);
+    var valorAtendimentos = parseFloat(document.getElementById("valor_total").dataset.valor);
+    var diferenca = valorAtendimentos - valorPagamentos;
+    if (diferenca * diferenca > 0) {
+        toastErro("Valor total não confere com valor dos Pagamentos");
+        alertProcessandoHide();
+        return;
+    }
+    var token = document.head.querySelector('meta[name="csrf-token"]').content;
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: { _token: token, _servicos: JSON.stringify(servicos), _pagamentos: JSON.stringify(pagamentos),
+            _produtos: JSON.stringify(produtos), _cliente_id: cliente_id },
+        success: function success(retorno) {
+            alertProcessandoHide();
+            if (retorno.erro) {
+                toastErro(retorno.msg);
+            } else {
+                toastSucesso(retorno.msg);
+                window.location = url_retorno;
+            }
+        },
+        error: function error(erro) {
+            alertProcessandoHide();
+            toastErro("Ocorreu um erro");
+            console.log(erro);
+        }
+    });
+};
+
 window.calculaValorTotal = function () {
     var totalAtendimento = 0;
     for (i in servicos) {
