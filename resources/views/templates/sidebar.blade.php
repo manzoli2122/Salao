@@ -6,10 +6,11 @@
         <li class="header">MENU PRINCIPAL</li>        
         
 
-        @if(Route::getRoutes()->hasNamedRoute('clientes.index'))
+
+        @if(Route::getRoutes()->hasNamedRoute('clientes.ajax.index'))
           @permissao('clientes')
             <li>
-              <a href="{{ route('clientes.index')}}">
+              <a href="{{ route('clientes.ajax.index')}}">
                 <i class="fa fa-users fa-lg fa-2x text-green"></i> <span> CLIENTES </span>
               </a>
             </li>
@@ -17,20 +18,21 @@
         @endif 
 
 
-        @if(Route::getRoutes()->hasNamedRoute('atendimentos.index'))
+
+        @if(Route::getRoutes()->hasNamedRoute('atendimentos.ajax.index'))
           @permissao('atendimentos')
             <li>
-              <a href="{{ route('atendimentos.index')}}">
+              <a href="{{ route('atendimentos.ajax.index')}}">
                 <i class="glyphicon glyphicon-list-alt fa-lg fa-2x text-orange"></i> <span>RELATÓRIO DE CAIXA</span>
               </a>
             </li>
           @endpermissao
         @endif
-          
+
         
         @permissao('super-admin')
         <li class="treeview">
-          <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO AJAX</span>
+          <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO </span>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
           </a>
           <ul class="treeview-menu">
@@ -73,50 +75,22 @@
 
 
 
-        @if(Route::getRoutes()->hasNamedRoute('servicos.index.123'))
-         <li class="treeview">
-          <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO VELHO</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-              @if(Route::getRoutes()->hasNamedRoute('servicos.index'))
-                @permissao('servicos')
-                    <li class="nav-item">
-                      <a class="nav-link active" href="{{ route('servicos.index')}}">
-                        <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
-                        Serviços
-                      </a>
-                    </li>
-                @endpermissao			
-              @endif
-              @if(Route::getRoutes()->hasNamedRoute('produtos.index'))    
-                @permissao('produtos')
-                    <li class="nav-item">
-                      <a class="nav-link active" href="{{ route('produtos.index')}}">
-                        <i class="fa fa-gift  fa-lg text-primary" aria-hidden="true"></i>
-                        Produtos
-                      </a>
-                    </li>
-                @endpermissao	
-              @endif
-              @if(Route::getRoutes()->hasNamedRoute('operadoras.index'))
-                @permissao('operadoras')
-                    <li class="nav-item">
-                      <a class="nav-link active" href="{{ route('operadoras.index')}}">
-                        <i class="fa fa-credit-card-alt  fa-lg text-primary" aria-hidden="true"></i>
-                        Operadoras
-                      </a>
-                    </li>
-                @endpermissao	
-              @endif
-          </ul>
-        </li>
-      @endif
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+      
       @if(Route::getRoutes()->hasNamedRoute('despesas.index'))
        @permissao('despesas')            
           <li>                
@@ -275,26 +249,7 @@
 
 
         
-          @if(Route::getRoutes()->hasNamedRoute('clientes.ajax.index'))
-            @permissao('clientes')
-              <li>
-                <a href="{{ route('clientes.ajax.index')}}">
-                  <i class="fa fa-users fa-lg fa-2x text-green"></i> <span> CLIENTES AJAX </span>
-                </a>
-              </li>
-            @endpermissao
-          @endif 
-
-        @if(Route::getRoutes()->hasNamedRoute('atendimentos.ajax.index'))
-          @permissao('atendimentos')
-            <li>
-              <a href="{{ route('atendimentos.ajax.index')}}">
-                <i class="glyphicon glyphicon-list-alt fa-lg fa-2x text-orange"></i> <span>RELATÓRIO DE CAIXA AJAX</span>
-              </a>
-            </li>
-          @endpermissao
-        @endif
-
+         
 
         <li class="header">LABELS</li>
 
@@ -362,6 +317,74 @@
 
     
         @yield('menuLateral')
+
+        @if(Route::getRoutes()->hasNamedRoute('clientes.index'))
+          @permissao('clientesrer')
+            <li>
+              <a href="{{ route('clientes.index')}}">
+                <i class="fa fa-users fa-lg fa-2x text-green"></i> <span> CLIENTES </span>
+              </a>
+            </li>
+          @endpermissao
+        @endif 
+
+
+        @if(Route::getRoutes()->hasNamedRoute('atendimentos.index'))
+          @permissao('atendimentosrerere')
+            <li>
+              <a href="{{ route('atendimentos.index')}}">
+                <i class="glyphicon glyphicon-list-alt fa-lg fa-2x text-orange"></i> <span>RELATÓRIO DE CAIXA</span>
+              </a>
+            </li>
+          @endpermissao
+        @endif
+
+
+        
+
+        @if(Route::getRoutes()->hasNamedRoute('servicos.index.123'))
+         <li class="treeview">
+          <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO VELHO</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              @if(Route::getRoutes()->hasNamedRoute('servicos.index'))
+                @permissao('servicos')
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{{ route('servicos.index')}}">
+                        <i class="glyphicon glyphicon-scissors fa-lg text-primary" aria-hidden="true"></i>
+                        Serviços
+                      </a>
+                    </li>
+                @endpermissao			
+              @endif
+              @if(Route::getRoutes()->hasNamedRoute('produtos.index'))    
+                @permissao('produtos')
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{{ route('produtos.index')}}">
+                        <i class="fa fa-gift  fa-lg text-primary" aria-hidden="true"></i>
+                        Produtos
+                      </a>
+                    </li>
+                @endpermissao	
+              @endif
+              @if(Route::getRoutes()->hasNamedRoute('operadoras.index'))
+                @permissao('operadoras')
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{{ route('operadoras.index')}}">
+                        <i class="fa fa-credit-card-alt  fa-lg text-primary" aria-hidden="true"></i>
+                        Operadoras
+                      </a>
+                    </li>
+                @endpermissao	
+              @endif
+          </ul>
+        </li>
+      @endif
+
+          
                
       </ul>
     </section>
