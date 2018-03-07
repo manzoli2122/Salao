@@ -2,7 +2,7 @@
 
 @push('styles') 
 <style>
-    .content {
+    .content2 {
         background-image: url('images/logo-vip.png')!important ;
           background-repeat: no-repeat !important;
           background-attachment: scroll !important;
