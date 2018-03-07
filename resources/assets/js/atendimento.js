@@ -5,6 +5,59 @@ window.pagamentos = [];
 window.pagardivida = false ;
 
 
+
+
+window.modelAtender = function( id , url , funcSucesso = function() {} ) {			
+    alertProcessando();
+    servicos = [];
+    produtos = [];
+    pagamentos = [];
+    pagardivida = false ;
+    
+    var token = document.head.querySelector('meta[name="csrf-token"]').content;
+    $.ajax({
+        url: url + "/" + id ,
+        type: 'get',
+        data: { _token: token },
+        success: function(retorno) {
+            alertProcessandoHide();	
+            if (retorno.erro) {
+                toastErro(retorno.msg);
+            } else {
+                document.getElementById("div-pagina").innerHTML = retorno.data ;
+                funcSucesso();
+                inicializarAtendimento();
+            }					
+        },
+        error: function(erro) {
+            alertProcessandoHide();
+            toastErro("Ocorreu um erro");
+            console.log(erro);
+        }
+    });			
+}
+
+
+window.inicializarAtendimento = function(  ) {			
+    $('#servico_id').select2({
+        width: 'resolve',// need to override the changed default       
+    });
+    $('#servico_id').on('select2:select', function (e) {
+        servicoFunction();
+    });
+    $("#funcionario_id").select2();
+    $('#produto_id').select2({
+        width: 'resolve',// need to override the changed default       
+    });
+    $('#produto_id').on('select2:select', function (e) {
+        produtoFunction();
+    });	
+}
+
+
+
+/*
+
 $(document).ready(function () {
     $('#servico_id').select2({
         width: 'resolve',// need to override the changed default       
@@ -21,7 +74,7 @@ $(document).ready(function () {
     });
 });
 
-
+*/
 
 
 
