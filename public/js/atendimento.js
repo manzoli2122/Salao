@@ -122,26 +122,6 @@ window.inicializarAtendimento = function () {
     });
 };
 
-/*
-
-$(document).ready(function () {
-    $('#servico_id').select2({
-        width: 'resolve',// need to override the changed default       
-    });
-    $('#servico_id').on('select2:select', function (e) {
-        servicoFunction();
-    });
-    $("#funcionario_id").select2();
-    $('#produto_id').select2({
-        width: 'resolve',// need to override the changed default       
-    });
-    $('#produto_id').on('select2:select', function (e) {
-        produtoFunction();
-    });
-});
-
-*/
-
 window.atendimentoStore = function (url, cliente_id, url_retorno) {
     alertProcessando();
     var valorPagamentos = parseFloat(document.getElementById("valor_total_pagamentos").dataset.valor);
@@ -240,6 +220,12 @@ window.AdicionarServico = function () {
         toastErro('Selecione o Funcionario.');
         return;
     }
+
+    if (novoServico.valor_servico_total < 0) {
+        toastErro('Valor do Serviço deve ser maior ou igual a zero.');
+        return;
+    }
+
     var servico = form["servico_id"].options[form["servico_id"].selectedIndex];
     var funcionario = form["funcionario_id"].options[form["funcionario_id"].selectedIndex];
     novoServico['nome_servico'] = servico.dataset.nome;
@@ -343,6 +329,12 @@ window.AdicionarProduto = function () {
         toastErro('Selecione o Produto.');
         return;
     }
+
+    if (novoProduto.valor_produto_total < 0) {
+        toastErro('Valor do Produto deve ser maior que zero.');
+        return;
+    }
+
     var produto = form["produto_id"].options[form["produto_id"].selectedIndex];
     novoProduto['nome_produto'] = produto.dataset.nome;
     produtos.push(novoProduto);
@@ -444,9 +436,37 @@ window.AdicionarPagamento = function () {
     }
     var operadora = form["operadora_id"].options[form["operadora_id"].selectedIndex];
     novoPagamento['nome_operadora'] = operadora.dataset.nome;
+
     if (novoPagamento.formaPagamento == '') {
         toastErro('Selecione a Forma de Pagamento.');
         return;
+    }
+
+    if (novoPagamento.valor <= 0) {
+        toastErro('Valor do pagamento deve ser maior que zero.');
+        return;
+    }
+
+    if (novoPagamento.formaPagamento == 'credito') {
+        if (novoPagamento.bandeira == '') {
+            toastErro('Selecione a Bandeira.');
+            return;
+        }
+        if (novoPagamento.operadora_id == '') {
+            toastErro('Selecione a Operadora.');
+            return;
+        }
+    }
+
+    if (novoPagamento.formaPagamento == 'debito') {
+        if (novoPagamento.bandeira == '') {
+            toastErro('Selecione a Bandeira.');
+            return;
+        }
+        if (novoPagamento.operadora_id == '') {
+            toastErro('Selecione a Operadora.');
+            return;
+        }
     }
     pagamentos.push(novoPagamento);
     restartModalPagamento();
