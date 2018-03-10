@@ -197,11 +197,11 @@ return [
        // Manzoli2122\Salao\Despesas\DespesasServiceProvider::class,
        // Manzoli2122\Salao\Gerencial\GerencialServiceProvider::class,
         
-        Manzoli2122\Salao\Despesas\Ajax\DespesasServiceProvider::class,
+        Manzoli2122\Salao\Despesas\Ajax\DespesasAjaxServiceProvider::class,
         Manzoli2122\Salao\Cadastro\Ajax\CadastroAjaxServiceProvider::class,  
         Manzoli2122\Salao\Atendimento\Ajax\AtendimentoAjaxServiceProvider::class,
         Manzoli2122\Salao\Gerencial\Ajax\GerencialAjaxServiceProvider::class,
-        Manzoli2122\Salao\Calendar\CalendarServiceProvider::class,
+        //Manzoli2122\Salao\Calendar\CalendarServiceProvider::class,
 
         /*
          * Application Service Providers...
