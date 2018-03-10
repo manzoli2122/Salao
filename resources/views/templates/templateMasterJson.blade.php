@@ -24,7 +24,7 @@
     <script type="text/javascript">   URL_ROOT = "{{url('/')}}"; </script>
 </head>
 
-<body class="hold-transition skin-green sidebar-mini" id="body">
+<body class="hold-transition skin-green sidebar-mini sidebar-collapse" id="body">
 
     <!-- Mensagens de Sucesso -->
     @if (\Session::has('success'))

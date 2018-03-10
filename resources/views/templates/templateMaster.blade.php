@@ -32,7 +32,7 @@
 
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini sidebar-collapse">
 
     <!-- Mensagens de Sucesso -->
     @if (\Session::has('success'))
