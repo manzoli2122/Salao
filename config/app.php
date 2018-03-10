@@ -197,6 +197,7 @@ return [
         Manzoli2122\Salao\Despesas\DespesasServiceProvider::class,
         Manzoli2122\Salao\Gerencial\GerencialServiceProvider::class,
         
+        Manzoli2122\Salao\Despesas\Ajax\DespesasServiceProvider::class,
         Manzoli2122\Salao\Cadastro\Ajax\CadastroAjaxServiceProvider::class,  
         Manzoli2122\Salao\Atendimento\Ajax\AtendimentoAjaxServiceProvider::class,
         Manzoli2122\Salao\Gerencial\Ajax\GerencialAjaxServiceProvider::class,

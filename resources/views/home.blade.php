@@ -35,7 +35,7 @@
 					<th>Aniversariantes</th>
 					<th>Dia</th>								
 				</tr>					
-				@forelse( Manzoli2122\Salao\Atendimento\Models\Cliente::whereMonth('nascimento',now()->month)->ativo()->get()
+				@forelse( Manzoli2122\Salao\Atendimento\Ajax\Models\Cliente::whereMonth('nascimento',now()->month)->ativo()->get()
 					->sortBy(function ($usuario, $key) {
 						return $usuario['nascimento']->day;
 					}) as $user)
@@ -90,11 +90,11 @@
 					</tr>
 					<tr>						
 						<td> Total de Tipos de Serviços</td>						
-						<td> {{ Manzoli2122\Salao\Cadastro\Models\Servico::ativo()->count() }} </td>
+						<td> {{ Manzoli2122\Salao\Cadastro\Ajax\Models\Servico::ativo()->count() }} </td>
 					</tr>
 					<tr>						
 						<td> Total de Produtos </td>						
-						<td> {{ Manzoli2122\Salao\Cadastro\Models\Produto::ativo()->count() }} </td>
+						<td> {{ Manzoli2122\Salao\Cadastro\Ajax\Models\Produto::ativo()->count() }} </td>
 					</tr>
 				</table>				
 			</div>
