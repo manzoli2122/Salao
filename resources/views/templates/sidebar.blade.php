@@ -30,7 +30,7 @@
         @endif
 
         
-        @permissao('super-admin')
+        @if(Route::getRoutes()->hasNamedRoute('operadoras.ajax.index'))
         <li class="treeview">
           <a href="#"><i class="fa fa-check-circle  fa-lg fa-2x text-primary"></i> <span>CADASTRO </span>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -70,7 +70,7 @@
          
           </ul>
         </li>
-      @endpermissao
+        @endif
     
 
 
