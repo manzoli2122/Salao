@@ -76,6 +76,61 @@
 
 
 
+      
+      @if(Route::getRoutes()->hasNamedRoute('despesas.ajax.index'))
+       @permissao('despesas')            
+          <li>                
+            <a href="{{ route('despesas.ajax.index')}}"><i class="fa fa-money text-red fa-lg fa-2x"></i> <span>DESPESAS </span></a>
+          </li>
+        @endpermissao
+      @endif
+
+      @if(Route::getRoutes()->hasNamedRoute('funcionarios.ajax.index'))
+        @permissao('funcionarios')
+          <li>
+            <a href="{{ route('funcionarios.ajax.index')}}"><i class="fa fa-users fa-lg fa-2x text-purple"></i> <span>FUNCIONÁRIOS  </span></a>
+          </li>
+        @endpermissao
+      @endif
+
+
+
+
+
+
+      
+      @if(Route::getRoutes()->hasNamedRoute('gerencialAtendimentos.index'))
+        @permissao('gerencial') 
+        <li class="treeview">
+          <a href="#">
+            <i class="glyphicon glyphicon-globe fa-lg fa-2x text-blue"></i> <span>GERENCIAL </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+           @if(Route::getRoutes()->hasNamedRoute('gerencialAtendimentos.index'))
+            
+               <li class="active">
+                <a  href="{{ route('pagamentos.ajax.index') }}"> <span class="sr-only">(current)</span>
+                  <i class="glyphicon glyphicon-earphone fa-lg text-blue" aria-hidden="true"></i>
+                  Pagamentos
+                </a>
+              </li>
+           
+              <li class="active">
+                <a  href="{{ route('gerencial.ajax.relatorio.index') }}" > <span class="sr-only">(current)</span>
+                  <i class="fa fa-line-chart  fa-lg text-blue" aria-hidden="true"></i>
+                  Relatorio 
+                </a>
+              </li>
+           @endif
+         
+            
+          </ul>
+        </li>
+         @endpermissao
+      @endif
 
 
 
@@ -91,26 +146,10 @@
 
 
       
-      @if(Route::getRoutes()->hasNamedRoute('despesas.index'))
-       @permissao('despesas')            
-          <li>                
-            <a href="{{ route('despesas.index')}}"><i class="fa fa-money text-red fa-lg fa-2x"></i> <span>DESPESAS</span></a>
-          </li>
-        @endpermissao
-      @endif
-      @if(Route::getRoutes()->hasNamedRoute('funcionarios.index'))
-        @permissao('funcionarios')
-          <li>
-            <a href="{{ route('funcionarios.index')}}"><i class="fa fa-users fa-lg fa-2x text-purple"></i> <span>FUNCIONÁRIOS</span></a>
-          </li>
-        @endpermissao
-      @endif
 
 
 
-
-
-      @if(Route::getRoutes()->hasNamedRoute('gerencialAtendimentos.index'))
+      @if(Route::getRoutes()->hasNamedRoute('gerencialAtendimentos.index123'))
         @permissao('gerencial') 
         <li class="treeview">
           <a href="#">
@@ -318,7 +357,7 @@
     
         @yield('menuLateral')
 
-        @if(Route::getRoutes()->hasNamedRoute('clientes.index'))
+        @if(Route::getRoutes()->hasNamedRoute('clientes.index123'))
           @permissao('clientesrer')
             <li>
               <a href="{{ route('clientes.index')}}">
@@ -329,7 +368,7 @@
         @endif 
 
 
-        @if(Route::getRoutes()->hasNamedRoute('atendimentos.index'))
+        @if(Route::getRoutes()->hasNamedRoute('atendimentos.index123'))
           @permissao('atendimentosrerere')
             <li>
               <a href="{{ route('atendimentos.index')}}">
@@ -383,6 +422,25 @@
           </ul>
         </li>
       @endif
+
+
+      
+      @if(Route::getRoutes()->hasNamedRoute('despesas.index123'))
+       @permissao('despesas')            
+          <li>                
+            <a href="{{ route('despesas.index')}}"><i class="fa fa-money text-red fa-lg fa-2x"></i> <span>DESPESAS</span></a>
+          </li>
+        @endpermissao
+      @endif
+      @if(Route::getRoutes()->hasNamedRoute('funcionarios.index123'))
+        @permissao('funcionarios')
+          <li>
+            <a href="{{ route('funcionarios.index')}}"><i class="fa fa-users fa-lg fa-2x text-purple"></i> <span>FUNCIONÁRIOS</span></a>
+          </li>
+        @endpermissao
+      @endif
+
+
 
           
                
