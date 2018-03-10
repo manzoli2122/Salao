@@ -99,7 +99,7 @@
 
 
       
-      @if(Route::getRoutes()->hasNamedRoute('gerencialAtendimentos.index'))
+      @if(Route::getRoutes()->hasNamedRoute('pagamentos.ajax.index'))
         @permissao('gerencial') 
         <li class="treeview">
           <a href="#">
@@ -109,7 +109,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-           @if(Route::getRoutes()->hasNamedRoute('gerencialAtendimentos.index'))
+           @if(Route::getRoutes()->hasNamedRoute('pagamentos.ajax.index'))
             
                <li class="active">
                 <a  href="{{ route('pagamentos.ajax.index') }}"> <span class="sr-only">(current)</span>
