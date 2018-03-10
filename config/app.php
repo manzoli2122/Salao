@@ -192,10 +192,10 @@ return [
          */
 
         Manzoli2122\AAL\AALServiceProvider::class,
-        Manzoli2122\Salao\Cadastro\CadastroServiceProvider::class,        
-        Manzoli2122\Salao\Atendimento\AtendimentoServiceProvider::class,
-        Manzoli2122\Salao\Despesas\DespesasServiceProvider::class,
-        Manzoli2122\Salao\Gerencial\GerencialServiceProvider::class,
+       // Manzoli2122\Salao\Cadastro\CadastroServiceProvider::class,        
+       // Manzoli2122\Salao\Atendimento\AtendimentoServiceProvider::class,
+       // Manzoli2122\Salao\Despesas\DespesasServiceProvider::class,
+       // Manzoli2122\Salao\Gerencial\GerencialServiceProvider::class,
         
         Manzoli2122\Salao\Despesas\Ajax\DespesasServiceProvider::class,
         Manzoli2122\Salao\Cadastro\Ajax\CadastroAjaxServiceProvider::class,  
