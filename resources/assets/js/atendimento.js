@@ -486,6 +486,7 @@ window.formaPagamentoDisplay = function(val) {
     if (val == 'debito') {
         document.getElementById("form-operadora").hidden = false;
         document.getElementById("form-parcelas").hidden = true;
+        document.getElementById("parcelas").selectedIndex = 1;
         document.getElementById("form-bandeira").hidden = false;
         document.getElementById("operadora_id").required = true;
         document.getElementById("parcelas").required = false;
