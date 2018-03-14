@@ -53,7 +53,7 @@ class HomeController extends Controller
 
         });
 */
-        return view('graficos.atendimentos.atendimentos');
+        return view('home');
     }
 
 
