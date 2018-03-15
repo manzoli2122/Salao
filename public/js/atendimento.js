@@ -234,7 +234,7 @@ window.AdicionarServico = function () {
     restartModalServico();
     desenharServico();
     calculaValorTotal();
-    $('#servicoModal').modal('hide');
+    //$('#servicoModal').modal('hide');    
     alertSucesso("Serviço Adicionado Com sucesso!!", '', 'bottomRight');
 };
 
