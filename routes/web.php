@@ -21,3 +21,17 @@ Route::post('password/email', 'Auth\ForgotPasswordController@SendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@ShowResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.request'); 
 */
+
+Route::group(['prefix' => 'api/v1' ], function(){
+
+
+    Route::resource('servicos', 'ServicoController', ['only' => [
+        'index', 'show' 
+    ] ,
+    'names' => [                
+        'index' => 'servicos.api.index' ,   
+        'show' => 'servicos.api.show' ,
+    ]
+]);
+
+});
