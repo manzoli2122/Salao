@@ -7,9 +7,23 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Cache;
 use Redis;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+
+
+
+    protected function guard()
+    {
+        //dd(Auth::guard('web'));
+        return Auth::guard('web');
+        //return Auth::guard();
+    }
+     
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -30,6 +44,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
+        
         session(['users' => $user->name ]);
         //session(['users_id' => $user->id ]);
         //Redis::set("users{$user->id}" , $user->name . ' redis ');
@@ -56,4 +71,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+
+    
 }

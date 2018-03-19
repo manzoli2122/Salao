@@ -24,7 +24,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 Route::group(['prefix' => 'api/v1' ], function(){
 
-
+/*
     Route::resource('servicos', 'ServicoController', ['only' => [
         'index', 'show' 
     ] ,
@@ -33,5 +33,7 @@ Route::group(['prefix' => 'api/v1' ], function(){
         'show' => 'servicos.api.show' ,
     ]
 ]);
+
+*/
 
 });

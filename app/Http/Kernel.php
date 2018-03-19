@@ -60,5 +60,9 @@ class Kernel extends HttpKernel
 
         'perfil' => \Manzoli2122\AAL\Middleware\AALPerfil::class,
         'permissao' => \Manzoli2122\AAL\Middleware\AALPermissao::class,
+
+         //Middleware Authentication API
+        // 'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+
     ];
 }

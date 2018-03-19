@@ -27,13 +27,15 @@ class ServicoController extends BaseController
 
     public function __construct(Servico $servico){
         $this->model = $servico;
+        $this->middleware('auth:api');
+        $this->middleware('perfil:Admin')->only([ 'index'  ]) ;
     }
 
 
 
 
     public function index(){       
-        return response()->json(['erro' => true , 'msg' =>"Dados encontrados com sucesso." , 'data' => $this->model->all() ], 200);
+        return response()->json(['erro' => false , 'msg' =>"Dados encontrados com sucesso." , 'data' => $this->model->all() ], 200);
     }
 
 
